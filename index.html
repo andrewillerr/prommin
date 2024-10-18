@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gold, Bitcoin & Ethereum Prices</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        h1 {
+            color: #FFD700; /* Gold color */
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        p {
+            font-size: 20px;
+            margin: 10px 0;
+            text-align: center;
+        }
+        strong {
+            color: #007BFF; /* Blue color for emphasis */
+        }
+        .loading {
+            text-align: center;
+            font-size: 20px;
+        }
+        .login-form {
+            display: none;
+            margin-top: 20px;
+        }
+        .login-input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .hyperlink-container {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .hyperlink {
+            color: #007BFF;
+            text-decoration: none;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Current Prices</h1>
+
+<div class="container" id="price-container" style="display:none;">
+    <p id="gold-price" class="loading">Loading Gold Price...</p>
+    <p id="bitcoin-price" class="loading">Loading Bitcoin Price...</p>
+    <p id="eth-price" class="loading">Loading Ethereum Price...</p>
+</div>
+
+<div class="login-form" id="login-form">
+    <h2>Login</h2>
+    <input type="text" id="username" class="login-input" placeholder="Username" required>
+    <input type="password" id="password" class="login-input" placeholder="Password" required>
+    <button class="login-button" onclick="login()">Login</button>
+</div>
+
+<div class="hyperlink-container" id="hyperlink-container">
+    <a href="https://o365ku-my.sharepoint.com/:p:/g/personal/prommin_b_live_ku_th/EUvfuywjjC5LuV1H_gQ89rUBi05l6NIZA4zrfkUTfXR84Q?e=QgYjBe" class="hyperlink">คลิกที่นี่เพื่อเปิดลิงก์ SharePoint</a>
+</div>
+
+<script>
+    function login() {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        // Simple login validation
+        if (username === 'user' && password === 'password') {
+            document.getElementById('login-form').style.display = 'none';
+            document.getElementById('price-container').style.display = 'block';
+            document.getElementById('hyperlink-container').style.display = 'block'; // Show hyperlink after login
+            fetchPrices();
+        } else {
+            alert('Invalid username or password');
+        }
+    }
+
+    async function fetchPrices() {
+        const goldUrl = 'https://api.gold-api.com/price/XAU';
+        const bitcoinUrl = 'https://api.gold-api.com/price/BTC';
+        const ethUrl = 'https://api.gold-api.com/price/ETH';
+
+        try {
+            const goldResponse = await fetch(goldUrl);
+            const bitcoinResponse = await fetch(bitcoinUrl);
+            const ethResponse = await fetch(ethUrl);
+
+            if (goldResponse.ok && bitcoinResponse.ok && ethResponse.ok) {
+                const goldData = await goldResponse.json();
+                const bitcoinData = await bitcoinResponse.json();
+                const ethData = await ethResponse.json();
+
+                document.getElementById('gold-price').innerHTML = 
+                    `The current price of Gold (XAU) is: <strong>${goldData.price} USD</strong>`;
+                document.getElementById('bitcoin-price').innerHTML = 
+                    `The current price of Bitcoin (BTC) is: <strong>${bitcoinData.price} USD</strong>`;
+                document.getElementById('eth-price').innerHTML = 
+                    `The current price of Ethereum (ETH) is: <strong>${ethData.price} USD</strong>`;
+            } else {
+                throw new Error('Failed to fetch prices');
+            }
+        } catch (error) {
+            document.getElementById('gold-price').innerHTML = 
+                'Error retrieving Gold (XAU) price.';
+            document.getElementById('bitcoin-price').innerHTML = 
+                'Error retrieving Bitcoin (BTC) price.';
+            document.getElementById('eth-price').innerHTML = 
+                'Error retrieving Ethereum (ETH) price.';
+        }
+    }
+
+    // Show the login form by default
+    document.getElementById('login-form').style.display = 'block';
+</script>
+
+</body>
+</html>
