@@ -1,49 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Andrewillerr's work</title>
-    <link rel="stylesheet" href="styles.css"> <!-- เชื่อมโยงไฟล์ CSS ที่สร้างใหม่ -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <h1>Welcome to Prommin's work</h1>
 
 <!-- เพิ่มเนื้อหาสำหรับ SlidePlayer -->
-<div style="width:800px">
-    <strong style="display:block;margin:12px 0 4px">
+<div class="iframe-container">
+    <strong>
         <a href="https://kuse.csc.ku.ac.th/" title="ภาควิชาวิศวกรรมไฟฟ้าและคอมพิวเตอร์ มหาวิทยาลัยเกษตรศาสตร์" target="_blank">
             ภาควิชาวิศวกรรมไฟฟ้าและคอมพิวเตอร์ คณะวิทยาศาสตร์และวิศวกรรมศาสตร์ มหาวิทยาลัยเกษตรศาสตร์ วิทยาเขตเฉลิมพระเกียรติ จังหวัดสกลนคร
         </a>
     </strong>
-    <div style="position: relative; width: 100%; height: 0; padding-top: 56.2225%;
- padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
- border-radius: 8px; will-change: transform;">
-  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-    src="https://www.canva.com/design/DAGeVsXFVdQ/bUdm2YwZhi63Jeiq-F7YiA/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
-  </iframe>
-</div>
-<a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAGeVsXFVdQ&#x2F;bUdm2YwZhi63Jeiq-F7YiA&#x2F;view?utm_content=DAGeVsXFVdQ&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">Prommin Buaphan (he&#x2F;his)</a> โดย Prommin BUAPHAN
-<!--     <iframe src="https://player.slideplayer.in.th/9/2210197/" 
-            width="800" 
-            height="649" 
-            frameborder="0" 
-            marginwidth="0" 
-            marginheight="0" 
-            scrolling="no" 
-            style="border:1px solid #CCC;border-width:1px 1px 0" 
-            allowfullscreen>
-    </iframe> -->
-<!--     <div style="padding:5px 0 12px"></div>
-</div> -->
-
-<div class="container" id="price-container" style="display:none;">
-    <p id="gold-price" class="loading">Loading Gold Price...</p>
-    <p id="bitcoin-price" class="loading">Loading Bitcoin Price...</p>
-    <p id="eth-price" class="loading">Loading Ethereum Price...</p>
+    <iframe loading="lazy" class="responsive-iframe" src="https://www.canva.com/design/DAGeVsXFVdQ/bUdm2YwZhi63Jeiq-F7YiA/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
 </div>
 
+<!-- Login form -->
 <div class="login-form" id="login-form">
     <h2>Login</h2>
     <input type="text" id="username" class="login-input" placeholder="Username" required>
@@ -51,6 +29,7 @@
     <button class="login-button" onclick="login()">Login</button>
 </div>
 
+<!-- Hyperlinks -->
 <div class="hyperlink-container" id="hyperlink-container">
     <a href="https://script.google.com/macros/s/AKfycbzPZZvHDVYldMWSEOxozGzGY1RnL5Jvw4h3e-NRFZUS-6nmo2cy2hqYv5iDn4po98pnPg/exec" class="hyperlink">เช็คอิน</a>
     <a href="https://youtu.be/BPgH-CSF6kY?si=jK6yqmLJtnBIecTv" class="hyperlink">คลิป</a>
@@ -66,8 +45,7 @@
         // Simple login validation
         if (username === 'user' && password === 'password') {
             document.getElementById('login-form').style.display = 'none';
-            document.getElementById('price-container').style.display = 'block';
-            document.getElementById('hyperlink-container').style.display = 'block'; // Show hyperlink after login
+            document.getElementById('hyperlink-container').style.display = 'block'; 
             fetchPrices();
         } else {
             alert('Invalid username or password');
@@ -89,22 +67,14 @@
                 const bitcoinData = await bitcoinResponse.json();
                 const ethData = await ethResponse.json();
 
-                document.getElementById('gold-price').innerHTML = 
-                    `The current price of Gold (XAU) is: <strong>${goldData.price} USD</strong>`;
-                document.getElementById('bitcoin-price').innerHTML = 
-                    `The current price of Bitcoin (BTC) is: <strong>${bitcoinData.price} USD</strong>`;
-                document.getElementById('eth-price').innerHTML = 
-                    `The current price of Ethereum (ETH) is: <strong>${ethData.price} USD</strong>`;
+                document.getElementById('gold-price').innerHTML = `The current price of Gold (XAU) is: <strong>${goldData.price} USD</strong>`;
+                document.getElementById('bitcoin-price').innerHTML = `The current price of Bitcoin (BTC) is: <strong>${bitcoinData.price} USD</strong>`;
+                document.getElementById('eth-price').innerHTML = `The current price of Ethereum (ETH) is: <strong>${ethData.price} USD</strong>`;
             } else {
                 throw new Error('Failed to fetch prices');
             }
         } catch (error) {
-            document.getElementById('gold-price').innerHTML = 
-                'Error retrieving Gold (XAU) price.';
-            document.getElementById('bitcoin-price').innerHTML = 
-                'Error retrieving Bitcoin (BTC) price.';
-            document.getElementById('eth-price').innerHTML = 
-                'Error retrieving Ethereum (ETH) price.';
+            alert('Error retrieving prices');
         }
     }
 
