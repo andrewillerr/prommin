@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,9 +41,7 @@
 <?php
 // ฟังก์ชันสำหรับดึงข้อมูลจาก API
 function fetch_price($url) {
-    // เริ่มต้นการเรียก cURL
     $curl = curl_init();
-
     curl_setopt_array($curl, array(
         CURLOPT_URL => $url,
         CURLOPT_RETURNTRANSFER => true,
@@ -51,38 +49,21 @@ function fetch_price($url) {
         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
         CURLOPT_CUSTOMREQUEST => "GET"
     ));
-
-    // ดึงผลลัพธ์จาก API
     $response = curl_exec($curl);
     $err = curl_error($curl);
-
     curl_close($curl);
-
-    // หากเกิดข้อผิดพลาดให้ส่งข้อความกลับ
-    if ($err) {
-        return "cURL Error: $err";
-    } else {
-        // แปลงผลลัพธ์ JSON ให้เป็น array
-        return json_decode($response, true);
-    }
+    return $err ? "cURL Error: $err" : json_decode($response, true);
 }
 
-// ดึงราคาทองคำ (XAU)
-$xauUrl = "https://api.gold-api.com/price/XAU";
-$xauData = fetch_price($xauUrl);
+$xauData = fetch_price("https://api.gold-api.com/price/XAU");
+$btcData = fetch_price("https://api.gold-api.com/price/BTC");
 
-// ดึงราคา Bitcoin (BTC)
-$btcUrl = "https://api.gold-api.com/price/BTC";
-$btcData = fetch_price($btcUrl);
-
-// แสดงราคาทองคำ (XAU)
 if (isset($xauData['price'])) {
     echo "<p>The current price of Gold (XAU) is: <strong>" . $xauData['price'] . " USD</strong></p>";
 } else {
     echo "<p>Error: Unable to retrieve Gold (XAU) price.</p>";
 }
 
-// แสดงราคา Bitcoin (BTC)
 if (isset($btcData['price'])) {
     echo "<p>The current price of Bitcoin (BTC) is: <strong>" . $btcData['price'] . " USD</strong></p>";
 } else {
