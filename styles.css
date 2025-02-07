@@ -7,39 +7,52 @@ body {
     line-height: 1.6;
 }
 
-/* สไตล์ Navbar */
+/* สไตล์สำหรับ Navbar */
 .navbar {
     background-color: #333;
-    overflow: hidden;
-}
-
-.navbar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+    padding: 10px 0;
     text-align: center;
 }
 
-.navbar li {
-    display: inline;
-    margin-right: 20px;
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
-.navbar a {
+.navbar ul li {
+    display: inline;
+}
+
+.navbar ul li a {
     text-decoration: none;
     color: white;
-    font-size: 18px;
-    padding: 14px 20px;
+    padding: 10px 15px;
     display: inline-block;
-    transition: background-color 0.3s ease;
+    transition: 0.3s;
 }
 
-.navbar a:hover {
-    background-color: #575757;
+.navbar ul li a:hover {
+    background-color: #555;
     border-radius: 5px;
-    transform: scale(1.1); /* ขยายขนาด */
-    transition: all 0.3s ease;
 }
+
+/* ทำให้เนื้อหากึ่งกลาง */
+.slideplayer-container {
+    text-align: center;
+    margin-top: 20px; /* กันไม่ให้ Navbar ติดเนื้อหามากเกินไป */
+}
+
+.iframe-container iframe {
+    display: block;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 800px;
+}
+
 
 /* สไตล์สำหรับเนื้อหาหลัก */
 .main-content {
@@ -178,6 +191,19 @@ div[style*="position: relative"] {
     max-width: 100%;
     margin: 20px auto;
 }
+.slideplayer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh; /* ถ้าต้องการให้เต็มหน้าจอ */
+    text-align: center;
+}
+.iframe-container iframe {
+    width: 120%; /* หรือกำหนดเป็นค่าคงที่ เช่น 600px */
+    max-width: 10000px;
+}
+
 
 /* ปรับปรุงการแสดงผลในหน้าจอมือถือ */
 @media screen and (max-width: 600px) {
@@ -196,4 +222,21 @@ div[style*="position: relative"] {
     .container {
         margin-top: 10px;
     }
+}
+/* ราคา */
+.price-container {
+    text-align: center;
+    margin: 20px auto;
+    width: 50%;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.price-container p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
 }

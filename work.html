@@ -1,49 +1,36 @@
 <!DOCTYPE html>
 <html lang="th">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>หน้าแรก</title>
+    <title>เกี่ยวกับ</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-        <ul>
-            <li><a href="index.html">กลับ</a></li>
-            <li><a href="main.html">หน้าแรก</a></li>
-            <li><a href="articles.html">บทความ</a></li>
-            <li><a href="about.html">เกี่ยวกับ</a></li>
-            <li><a href="work.html">งาน</a></li>
-            <li><a href="contact.html">ติดต่อ</a></li>
-        </ul>
-    </nav>
 
-    <!-- Main Content -->
-    <div class="main-content">
-        <h1>ยินดีต้อนรับสู่หน้าแรก</h1>
-        <p>เนื้อหาของหน้าแรกจะอยู่ที่นี่</p>
-    </div>
+<!-- Navbar -->
+<nav class="navbar">
+    <ul>
+        <li><a href="main.html">หน้าแรก</a></li>
+        <li><a href="articles.html">บทความ</a></li>
+        <li><a href="about.html">เกี่ยวกับ</a></li>
+        <li><a href="work.html">งาน</a></li>
+        <li><a href="contact.html">ติดต่อ</a></li>
 
-    <!-- SlidePlayer Section -->
-    <div class="slideplayer-container">
-        <strong>
-            <a href="https://kuse.csc.ku.ac.th/" title="ภาควิชาวิศวกรรมไฟฟ้าและคอมพิวเตอร์ มหาวิทยาลัยเกษตรศาสตร์" target="_blank">
-                ภาควิชาวิศวกรรมไฟฟ้าและคอมพิวเตอร์ คณะวิทยาศาสตร์และวิศวกรรมศาสตร์ มหาวิทยาลัยเกษตรศาสตร์ วิทยาเขตเฉลิมพระเกียรติ จังหวัดสกลนคร
-            </a>
-        </strong>
-        <div class="iframe-container">
-            <iframe loading="lazy" src="https://www.canva.com/design/DAGeVsXFVdQ/bUdm2YwZhi63Jeiq-F7YiA/view?embed" allowfullscreen></iframe>
-        </div>
-        <a href="https://www.canva.com/design/DAGeVsXFVdQ/bUdm2YwZhi63Jeiq-F7YiA/view?embed" target="_blank" rel="noopener">
-            Prommin Buaphan (he/his)
-        </a>
-    </div>
-    
+    </ul>
+</nav>
 
-    <!-- Display Prices
+<!-- Main Content -->
+<div class="main-content">
+    <h1>งาน</h1>
+    <p>ข้อมูลจะอยู่ที่นี่</p>
+    <!-- <div class="hyperlink-container" id="hyperlink-container">
+        <a href="https://script.google.com/macros/s/AKfycbzPZZvHDVYldMWSEOxozGzGY1RnL5Jvw4h3e-NRFZUS-6nmo2cy2hqYv5iDn4po98pnPg/exec" class="hyperlink">เช็คอิน</a>
+        <a href="https://youtu.be/BPgH-CSF6kY?si=jK6yqmLJtnBIecTv" class="hyperlink">คลิป</a>
+        <a href="https://o365ku-my.sharepoint.com/:p:/g/personal/prommin_b_live_ku_th/EUvfuywjjC5LuV1H_gQ89rUBi05l6NIZA4zrfkUTfXR84Q?e=QgYjBe" class="hyperlink">คลิกที่นี่เพื่อเปิดลิงก์ SharePoint</a>
+        <img src="Qr1.png" alt="QR Code for Check-in" class="qr-code"/> -->
+    </div> 
+    <!-- Display Prices -->
     <div class="price-container" id="price-container" style="display:none;">
         <p id="gold-price" class="loading">กำลังโหลดราคาทองคำ...</p>
         <p id="bitcoin-price" class="loading">กำลังโหลดราคาบิตคอยน์...</p>
@@ -81,7 +68,8 @@
         }
 
         window.onload = loadPrices;
-    </script> -->
-</body>
+    </script>
+</div>
 
+</body>
 </html>
