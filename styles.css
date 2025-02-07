@@ -188,7 +188,7 @@ iframe {
 
 /* เพิ่มการจัดระเบียบให้กับ SlidePlayer */
 div[style*="position: relative"] {
-    max-width: 100%;
+    max-width: 80%;
     margin: 20px auto;
 }
 .slideplayer-container {
@@ -239,4 +239,47 @@ div[style*="position: relative"] {
     font-size: 18px;
     font-weight: bold;
     color: #333;
+}
+
+/* 🟢 Media Queries ปรับขนาดให้รองรับทุกอุปกรณ์ */
+/* ✅ สำหรับจอเล็ก (มือถือ) */
+@media screen and (max-width: 600px) {
+    .navbar ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .navbar li {
+        margin: 5px 0;
+    }
+
+    .certificate-img {
+        max-width: 90%;
+    }
+}
+
+/* ✅ สำหรับจอกลาง (แท็บเล็ต) */
+@media screen and (max-width: 1024px) {
+    .navbar ul {
+        flex-wrap: wrap;
+    }
+
+    .navbar li {
+        margin: 5px;
+    }
+
+    .iframe-container {
+        width: 80%;
+    }
+}
+
+/* ✅ สำหรับจอใหญ่ (คอมพิวเตอร์) */
+@media screen and (min-width: 1025px) {
+    .iframe-container {
+        width: 60%;
+    }
+
+    .certificate-img {
+        max-width: 500px;
+    }
 }
