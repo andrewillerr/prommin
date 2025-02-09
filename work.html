@@ -24,11 +24,12 @@
 <div class="main-content">
     <h1>งาน</h1>
     <p>ข้อมูลจะอยู่ที่นี่</p>
-    <!-- <div class="hyperlink-container" id="hyperlink-container">
-        <a href="https://script.google.com/macros/s/AKfycbzPZZvHDVYldMWSEOxozGzGY1RnL5Jvw4h3e-NRFZUS-6nmo2cy2hqYv5iDn4po98pnPg/exec" class="hyperlink">เช็คอิน</a>
-        <a href="https://youtu.be/BPgH-CSF6kY?si=jK6yqmLJtnBIecTv" class="hyperlink">คลิป</a>
-        <a href="https://o365ku-my.sharepoint.com/:p:/g/personal/prommin_b_live_ku_th/EUvfuywjjC5LuV1H_gQ89rUBi05l6NIZA4zrfkUTfXR84Q?e=QgYjBe" class="hyperlink">คลิกที่นี่เพื่อเปิดลิงก์ SharePoint</a>
-        <img src="Qr1.png" alt="QR Code for Check-in" class="qr-code"/> -->
+    <a class="article-link" 
+    href="https://sites.google.com/kku.ac.th/aco-kku/home" 
+    target="_blank" rel="noopener">
+    ผศ.ดร.กิตติพิชญ์ มีสวาสดิ์ ภาควิชาวิศวกรรมไฟฟ้า คณะวิศวกรรมศาสตร์ มหาวิทยาลัยขอนแก่น
+    
+ </a>
     </div> 
     <!-- Display Prices -->
     <div class="price-container" id="price-container" style="display:none;">
@@ -37,12 +38,14 @@
         <p id="eth-price" class="loading">กำลังโหลดราคา Ethereum...</p>
     </div>
 
+    
 
-    <iframe frameborder="0" width="240" height="210" title=""
-        src="https://ebook.lib.ku.ac.th/ebook27/ebook/2013RG0001/"
-        type="text/html" allowfullscreen="true" scrolling="no" 
-        marginwidth="0" marginheight="0">
-    </iframe>
+    <div style="text-align: center; margin-top: 20px;">
+        <iframe frameborder="0" width="240" height="210" 
+            src="https://ebook.lib.ku.ac.th/ebook27/ebook/2013RG0001/"
+            allowfullscreen scrolling="no"></iframe>
+    </div>
+    
 
     <script>
         async function loadPrices() {
@@ -76,6 +79,8 @@
 
         window.onload = loadPrices;
     </script>
+
+    
 </div>
 
 </body>
