@@ -6,6 +6,24 @@
     <title>Prommin</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+         /* จัดให้อยู่กึ่งกลาง */
+    .iframe-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px auto;
+        width: 100%;
+        max-width: 800px;
+    }
+
+    /* ปรับขนาดรูป */
+    .certificate-img {
+        width: 100%;
+        max-width: 500px; /* ปรับขนาดรูปให้พอดี */
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    }
         .marquee {
             width: 100%;
             overflow: hidden;
@@ -59,25 +77,7 @@
          class="certificate-img">
 </div>
 
-<style> /* จัดให้อยู่กึ่งกลาง */
-    .iframe-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 20px auto;
-        width: 100%;
-        max-width: 800px;
-    }
-
-    /* ปรับขนาดรูป */
-    .certificate-img {
-        width: 100%;
-        max-width: 500px; /* ปรับขนาดรูปให้พอดี */
-        height: auto;
-        border-radius: 10px;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    }
-    </style>
+<style></style>
 
 <script>
     function showMessage() {
