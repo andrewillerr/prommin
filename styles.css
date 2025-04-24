@@ -225,6 +225,20 @@ div[style*="position: relative"] {
     max-width: 10000px;
 }
 
+.btn-chatbot {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+.btn-chatbot:hover {
+    background-color: #45a049;
+}
+
 
 /* ปรับปรุงการแสดงผลในหน้าจอมือถือ */
 @media screen and (max-width: 600px) {
