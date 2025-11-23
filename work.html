@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>เกี่ยวกับ</title>
+    <title>งาน | Portfolio</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<!-- Navbar -->
 <nav class="navbar">
     <ul>
         <li><a href="main.html">หน้าแรก</a></li>
@@ -16,110 +15,157 @@
         <li><a href="about.html">เกี่ยวกับ</a></li>
         <li><a href="work.html">งาน</a></li>
         <li><a href="contact.html">ติดต่อ</a></li>
-
     </ul>
 </nav>
 
-<!-- Main Content -->
 <div class="main-content">
     <h1>งาน</h1>
-    <p>ข้อมูลจะอยู่ที่นี่</p>
-    <a class="article-link" 
-    href="https://sites.google.com/kku.ac.th/aco-kku/home" 
-    target="_blank" rel="noopener">
-   ภาควิชาวิศวกรรมไฟฟ้า คณะวิศวกรรมศาสตร์ มหาวิทยาลัยขอนแก่น
-    
- </a>
-
-<br><br>
-
-<a class="article-link"
-
-href="https://fna.csc.ku.ac.th/grade/?fbclid=IwY2xjawJOPthleHRuA2FlbQIxMQABHXqfdv3g7_SkWTDFMKwOVgrOVfqgvNURnvTLgadP7-Df9nzThGlkCUmBFw_aem_wxbMI_ejEnFfE-uKITx4tA"
-     target="_blank" rel="noopener">
-      <b>KU Check GPAX</b>
-
-  </a>
-
-    <br><br>
-
-<a class="article-link" 
-   href="https://www.scopus.com/authid/detail.uri?authorId=59729737800" 
-   target="_blank" rel="noopener">
-    Scopus
-</a>
+    <p>ข้อมูลและผลงานต่างๆ</p>
 
     <a class="article-link" 
-   href="https://www.researchgate.net/profile/Prommin-Buaphan?ev=hdr_xprf" 
-   target="_blank" rel="noopener">
-    ResearchGate
-</a>
-    
+       href="https://sites.google.com/kku.ac.th/aco-kku/home" 
+       target="_blank" rel="noopener">
+       ภาควิชาวิศวกรรมไฟฟ้า คณะวิศวกรรมศาสตร์ มหาวิทยาลัยขอนแก่น
+    </a>
     <br><br>
 
-<a class="article-link" 
-   href="https://sites.google.com/ku.th/cpe-seniorproject/home?authuser=0" 
-   target="_blank" rel="noopener">
-    CPE Senior Project
-</a>
+    <a class="article-link"
+       href="https://fna.csc.ku.ac.th/grade/?fbclid=IwY2xjawJOPthleHRuA2FlbQIxMQABHXqfdv3g7_SkWTDFMKwOVgrOVfqgvNURnvTLgadP7-Df9nzThGlkCUmBFw_aem_wxbMI_ejEnFfE-uKITx4tA"
+       target="_blank" rel="noopener">
+       <b>KU Check GPAX</b>
+    </a>
+    <br><br>
 
-    <a href="https://orcid.org/0009-0007-6875-0843" target="_blank" style="text-decoration: none; color: #A6CE39;">
-  <img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" alt="ORCID iD icon"/>
-  https://orcid.org/0009-0007-6875-0843
-</a>
+    <a class="article-link" 
+       href="https://www.scopus.com/authid/detail.uri?authorId=59729737800" 
+       target="_blank" rel="noopener">
+       Scopus
+    </a>
 
-    </div> 
-    <!-- Display Prices -->
-    <div class="price-container" id="price-container" style="display:none;">
+    <a class="article-link" 
+       href="https://www.researchgate.net/profile/Prommin-Buaphan?ev=hdr_xprf" 
+       target="_blank" rel="noopener">
+       ResearchGate
+    </a>
+    <br><br>
+
+    <a class="article-link" 
+       href="https://sites.google.com/ku.th/cpe-seniorproject/home?authuser=0" 
+       target="_blank" rel="noopener">
+       CPE Senior Project
+    </a>
+
+    <div style="margin-top: 20px; margin-bottom: 10px;">
+        <a href="https://orcid.org/0009-0007-6875-0843" target="_blank" style="text-decoration: none; color: #A6CE39; font-weight: bold;">
+            <img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" alt="ORCID iD icon" style="vertical-align: middle;"/>
+            https://orcid.org/0009-0007-6875-0843
+        </a>
+    </div>
+
+    <hr style="border: 0; border-top: 1px solid #ccc; margin: 20px 0;">
+
+    <h3>ผลงานวิจัยจาก ORCID</h3>
+    <div id="orcid-works" style="margin-bottom: 30px;">
+        กำลังโหลดข้อมูลจาก ORCID...
+    </div>
+
+    <script>
+        // ORCID Configuration
+        const orcidID = "0009-0007-6875-0843";
+        const apiUrl = `https://pub.orcid.org/v3.0/${orcidID}/works`;
+
+        fetch(apiUrl, {
+            headers: { "Accept": "application/json" }
+        })
+        .then(response => {
+            if (!response.ok) throw new Error("Network response was not ok");
+            return response.json();
+        })
+        .then(data => {
+            const worksContainer = document.getElementById('orcid-works');
+            const works = data.group; 
+
+            if (!works || works.length === 0) {
+                worksContainer.innerHTML = "<p>ยังไม่มีข้อมูลผลงานเผยแพร่</p>";
+                return;
+            }
+
+            let htmlContent = "";
+            
+            works.forEach(workGroup => {
+                const workSummary = workGroup['work-summary'] ? workGroup['work-summary'][0] : null;
+                
+                if (workSummary) {
+                    const title = workSummary.title.title.value;
+                    const url = workSummary.url ? workSummary.url.value : "#";
+                    const year = workSummary['publication-date'] ? workSummary['publication-date'].year.value : "n.d.";
+
+                    // สร้างลิงก์โดยใช้ Class 'article-link' เพื่อให้สไตล์เหมือนปุ่มอื่นๆ
+                    htmlContent += `
+                        <a class="article-link" href="${url}" target="_blank" rel="noopener" style="display:block; margin-bottom: 15px;">
+                            <b>${title}</b> <br>
+                            <span style="font-size: 0.9em; color: #555;">Year: ${year} | Source: ORCID</span>
+                        </a>
+                    `;
+                }
+            });
+
+            worksContainer.innerHTML = htmlContent;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('orcid-works').innerHTML = "<p style='color:red;'>ไม่สามารถดึงข้อมูลได้ในขณะนี้</p>";
+        });
+    </script>
+
+    <div class="price-container" id="price-container" style="display:none; margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px;">
+        <h4>ราคาเหรียญปัจจุบัน</h4>
         <p id="gold-price" class="loading">กำลังโหลดราคาทองคำ...</p>
         <p id="bitcoin-price" class="loading">กำลังโหลดราคาบิตคอยน์...</p>
         <p id="eth-price" class="loading">กำลังโหลดราคา Ethereum...</p>
     </div>
 
-    
-
-    <div style="text-align: center; margin-top: 20px;">
+    <div style="text-align: center; margin-top: 30px;">
         <iframe frameborder="0" width="240" height="210" 
             src="https://ebook.lib.ku.ac.th/ebook27/ebook/2013RG0001/"
             allowfullscreen scrolling="no"></iframe>
     </div>
-    
 
-    <script>
-        async function loadPrices() {
-            try {
-                const goldAPI = 'https://api.gold-api.com/price/XAU';
-                const bitcoinAPI = 'https://api.gold-api.com/price/BTC';
-                const ethAPI = 'https://api.gold-api.com/price/ETH';
+</div> <script>
+    async function loadPrices() {
+        try {
+            const goldAPI = 'https://api.gold-api.com/price/XAU';
+            const bitcoinAPI = 'https://api.gold-api.com/price/BTC';
+            const ethAPI = 'https://api.gold-api.com/price/ETH';
 
-                const goldResponse = await fetch(goldAPI);
-                const bitcoinResponse = await fetch(bitcoinAPI);
-                const ethResponse = await fetch(ethAPI);
+            // ใช้ Promise.all เพื่อโหลดพร้อมกันและประหยัดเวลา
+            const [goldRes, btcRes, ethRes] = await Promise.all([
+                fetch(goldAPI),
+                fetch(bitcoinAPI),
+                fetch(ethAPI)
+            ]);
 
-                if (!goldResponse.ok || !bitcoinResponse.ok || !ethResponse.ok) {
-                    throw new Error('ไม่สามารถโหลดข้อมูลจาก API ได้');
-                }
-
-                const goldData = await goldResponse.json();
-                const bitcoinData = await bitcoinResponse.json();
-                const ethData = await ethResponse.json();
-
-                document.getElementById('gold-price').textContent = 'ราคาทองคำ: ' + goldData.price + ' USD';
-                document.getElementById('bitcoin-price').textContent = 'ราคาบิตคอยน์: ' + bitcoinData.price + ' USD';
-                document.getElementById('eth-price').textContent = 'ราคา Ethereum: ' + ethData.price + ' USD';
-
-                document.getElementById('price-container').style.display = 'block';
-            } catch (error) {
-                console.error('เกิดข้อผิดพลาดในการโหลดข้อมูล:', error);
-                alert('ไม่สามารถโหลดข้อมูลราคาจาก API ได้');
+            if (!goldRes.ok || !btcRes.ok || !ethRes.ok) {
+                throw new Error('API Error');
             }
+
+            const goldData = await goldRes.json();
+            const bitcoinData = await btcRes.json();
+            const ethData = await ethRes.json();
+
+            document.getElementById('gold-price').textContent = 'ราคาทองคำ: ' + goldData.price + ' USD';
+            document.getElementById('bitcoin-price').textContent = 'ราคาบิตคอยน์: ' + bitcoinData.price + ' USD';
+            document.getElementById('eth-price').textContent = 'ราคา Ethereum: ' + ethData.price + ' USD';
+
+            document.getElementById('price-container').style.display = 'block';
+        } catch (error) {
+            console.error('เกิดข้อผิดพลาดในการโหลดข้อมูล:', error);
+            // ไม่ต้อง alert รบกวนผู้ใช้ แต่ log ไว้ใน console
         }
+    }
 
-        window.onload = loadPrices;
-    </script>
-
-    
-</div>
+    window.onload = loadPrices;
+</script>
 
 </body>
 </html>
